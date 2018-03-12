@@ -1,0 +1,11 @@
+
+<!--load the header html file for the homepage-->
+    {% extends "lottoapp/header.html" %}
+    {% block content %}
+        <h3>歡迎使用樂透開獎服務</h3>
+        <div>
+            <a href="/event">建立新開獎</a>
+        </div>
+    {% include "lottoapp/includes/bamboocatsnippet.html" %}
+    {% endblock %}
+
