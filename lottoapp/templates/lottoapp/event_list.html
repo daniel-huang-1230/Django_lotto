@@ -1,0 +1,7 @@
+{% extends "lottoapp/header.html" %}
+
+{% block content %}
+    {% for event in object_list %}
+        <h5>{{event.deadline|date:"D d M Y"}}<a href="{{event.id}}"> {{event.name}}</a></h5>
+    {% endfor %}
+{% endblock %}

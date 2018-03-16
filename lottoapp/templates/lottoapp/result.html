@@ -1,0 +1,51 @@
+
+<html lang="en">
+<head>
+  <title>本期開獎名單</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <h2>開獎名單</h2>
+
+  <p>本期開獎時間為 <b>{{deadline}}</b></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>抽獎序號</th>
+        <th>Facebook使用者姓名</th>
+        <th>獎項與獎品</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for prize in range(winners|length) %}
+          {% for user_name in winners[prize] %}
+          <tr class= "{{colors[prize]}}">
+            <td>{{users[user_name]}}</td>
+            <td>{{user_name}}</td>
+            <td>{{prizes[prize]}}</td>
+          </tr>
+          {% endfor %}
+      {% endfor %}
+      {% for user_name in users.keys() %}
+        {% if user_name not in winners_flat: %}
+            <tr class= "active">
+            <td>{{users[user_name]}}</td>
+            <td>{{user_name}}</td>
+            <td>銘謝惠顧, 期待您下次中獎</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
